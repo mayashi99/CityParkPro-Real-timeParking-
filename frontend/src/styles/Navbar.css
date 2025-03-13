@@ -1,32 +1,50 @@
-.navbar {
+/* src/StepNavigationBar.css */
+.step-navigation-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .steps {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 15px 30px;
-}
-
-.logo {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  
+  .step {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+  }
+  
+  .step.active {
+    background-color: #007bff;
     color: white;
-    font-size: 24px;
-}
-
-.nav-links {
-    list-style: none;
+    border-color: #007bff;
+  }
+  
+  .navigation-buttons {
     display: flex;
-    gap: 20px;
-}
-
-.nav-links li {
-    display: inline;
-}
-
-.nav-links a {
+    justify-content: space-between;
+    width: 80%;
+  }
+  
+  .navigation-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
     color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.nav-links a:hover {
-    text-decoration: underline;
-}
+    cursor: pointer;
+  }
+  
+  .navigation-buttons button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }

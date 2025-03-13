@@ -1,19 +1,53 @@
-import React from "react";
+// src/StepNavigationBar.js
+import React, { useState } from 'react';
+import '../styles/Navbar.css';
+ // We'll create this in the next step
 
-const Navbar = () => {
+const StepNavigationBar = () => {
+  const [currentStep, setCurrentStep] = useState(1);
+
+  const steps = [
+    { id: 1, label: 'Step 1' },
+    { id: 2, label: 'Step 2' },
+    { id: 3, label: 'Step 3' },
+    { id: 4, label: 'Step 4' },
+    { id: 5, label: 'Step 5' },
+  ];
+
+  const handleNext = () => {
+    if (currentStep < steps.length) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
   return (
-    <nav className="flex justify-between p-4 bg-gray-100">
-      <div className="text-2xl font-bold">CityParkPro</div>
-      <div className="flex gap-4">
-        <a href="/" className="text-gray-700">Home</a>
-        <a href="/about" className="text-gray-700">About Us</a>
-        <a href="/reviews" className="text-gray-700">Reviews</a>
-        <button className="bg-blue-500 text-white px-4 py-1 rounded">Sign Up</button>
-        <button className="border px-4 py-1 rounded">Login</button>
+    <div className="step-navigation-bar">
+      <div className="steps">
+        {steps.map((step) => (
+          <div
+            key={step.id}
+            className={`step ${currentStep === step.id ? 'active' : ''}`}
+          >
+            {step.label}
+          </div>
+        ))}
       </div>
-    </nav>
+      <div className="navigation-buttons">
+        <button onClick={handlePrevious} disabled={currentStep === 1}>
+          Previous
+        </button>
+        <button onClick={handleNext} disabled={currentStep === steps.length}>
+          Next
+        </button>
+      </div>
+    </div>
   );
 };
 
-export default Navbar;
-
+export default StepNavigationBar;
