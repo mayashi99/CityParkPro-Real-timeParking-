@@ -1,48 +1,57 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Container, Card, Row, Col, Spinner } from "react-bootstrap";  // <-- Correct imports
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const ParkingSlotScreen = () => {
-    const [slots, setSlots] = useState([]);
-    const [loading, setLoading] = useState(true);
+const Navbar = () => {
+  const navItems = [1, 2, 3, 4, 5]; // List of numbers you want to show in the navbar
+
+  return (
+    <nav>
+      <ul style={{ display: 'flex', listStyleType: 'none', padding: 0 }}>
+        {navItems.map((item) => (
+          <li key={item} style={{ margin: '0 10px' }}>
+            <a href={`#${item}`} style={{ textDecoration: 'none', color: 'black' }}>
+              {item}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+const ParkingSlot = () => {
+    const [floors, setFloors] = useState([]);
 
     useEffect(() => {
-        const fetchSlots = async () => {
-            try {
-                const { data } = await axios.get("http://localhost:5000/api/slots");
-                setSlots(data);
-                setLoading(false);
-            } catch (error) {
-                console.error("Error fetching slots:", error);
-                setLoading(false);
-            }
-        };
-        fetchSlots();
+        axios.get('http://localhost:5000/api/floors')
+            .then(response => {
+                setFloors(response.data);
+            })
+            .catch(error => {
+                console.error('There was an error fetching the floors!', error);
+            });
     }, []);
 
     return (
-        <Container>
-            <h2 className="text-center my-4">Parking Slots</h2>
-            {loading ? (
-                <div className="text-center">
-                    <Spinner animation="border" />
-                </div>
-            ) : (
-                <Row>
-                    {slots.map(slot => (
-                        <Col key={slot.slotNumber} md={3}>
-                            <Card className={`mb-3 ${slot.isOccupied ? "bg-danger text-white" : "bg-success text-white"}`}>
-                                <Card.Body>
-                                    <Card.Title>Slot {slot.slotNumber}</Card.Title>
-                                    <Card.Text>Status: {slot.isOccupied ? "Occupied" : "Available"}</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
-                </Row>
-            )}
-        </Container>
+        <div>
+            <h1>Select Floors</h1>
+            <ul>
+                {floors.map(floor => (
+                    <li key={floor._id}>{floor.floorNumber}</li>
+                ))}
+            </ul>
+            <button>Continue</button>
+        </div>
     );
 };
 
-export default ParkingSlotScreen;
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+      <ParkingSlot />
+    </div>
+  );
+};
+
+export default App;

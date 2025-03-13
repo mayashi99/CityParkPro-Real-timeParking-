@@ -1,9 +1,18 @@
 import React from "react";
+//import Navbar from "./components/Navbar";
+//import Home from "./pages/Home";
 import ParkingSlotScreen from "./pages/ParkingSlotScreen";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-const App = () => {
-    return <ParkingSlotScreen />;
-};
+
+function App() {
+  return (
+    <div>
+      <ParkingSlotScreen/>
+     
+      
+    </div>
+  );
+}
 
 export default App;
+
