@@ -1,0 +1,47 @@
+.App {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  body {
+    background-image: url('https://i.pinimg.com/736x/a5/ae/07/a5ae0715e31d1f7189d4aa453e1f141e.jpg');
+    width: 100px;
+    height: 1000px;
+   
+  }
+   
+  /* src/styles/Navbar.css */
+nav {
+  padding: 500px;
+  font-size: 80px;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
