@@ -1,13 +1,14 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+//import Navbar from "./components/Navbar";
 //import Home from "./pages/Home";
-//import ParkingSlotScreen from "./pages/ParkingSlotScreen";
-import Feedback from "./pages/Feedback";
+import ParkingSlotScreen from "./pages/ParkingSlotScreen";
+
 function App() {
   return (
+  
     <div>
       <ParkingSlotScreen/>
-     
+   
       
     </div>
   );
