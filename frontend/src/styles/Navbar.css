@@ -4,6 +4,8 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    justify-content: center;
+    text-align: center;
   }
   
   .steps {
@@ -11,6 +13,9 @@
     justify-content: space-between;
     width: 80%;
     margin-bottom: 20px;
+    padding: 14px 16px;
+    background-color: aliceblue;
+    
   }
   
   .step {
@@ -21,6 +26,7 @@
     text-align: center;
     flex: 1;
     margin: 0 5px;
+    
   }
   
   .step.active {
@@ -47,4 +53,15 @@
   .navigation-buttons button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+  }
+  
+  .logoset{
+    display: flex;
+    padding-right: 1500px;
+    
+    
+  }
+
+  .logo{
+
   }

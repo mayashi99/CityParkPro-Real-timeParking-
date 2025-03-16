@@ -1,6 +1,7 @@
 // src/StepNavigationBar.js
 import React, { useState } from 'react';
 import '../styles/Navbar.css';
+import logo from '../img/Cslot.png';
  // We'll create this in the next step
 
 const StepNavigationBar = () => {
@@ -28,6 +29,10 @@ const StepNavigationBar = () => {
 
   return (
     <div className="step-navigation-bar">
+       <div className="logo">
+        <div className="logoset">
+       <img src={logo} alt="Slotlogo" className="Cslot" width={100} height={100}/>
+       </div>
       <div className="steps">
         {steps.map((step) => (
           <div
@@ -36,7 +41,9 @@ const StepNavigationBar = () => {
           >
             {step.label}
           </div>
+         
         ))}
+      </div>
       </div>
       <div className="navigation-buttons">
         <button onClick={handlePrevious} disabled={currentStep === 1}>

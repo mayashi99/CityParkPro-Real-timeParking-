@@ -1,29 +1,120 @@
-.App {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 10px 0;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-  }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #3b82f6;
+}
 
-  body {
+.card {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 700px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.slot {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+}
+
+.available {
+  background-color: #22c55e;
+}
+
+.not-available {
+  background-color: #ef4444;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-item {
+  width: 96px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 4px;
+  color: white;
+}
+
+.communication {
+  margin-top: 24px;
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: white;
+}
+
+.connect {
+  background-color: #3b82f6;
+}
+
+.close {
+  background-color: #6b7280;
+}
+
+.exit {
+  background-color: #ef4444;
+}
+
+  /*body {
     background-image: url('https://i.pinimg.com/736x/a5/ae/07/a5ae0715e31d1f7189d4aa453e1f141e.jpg');
-    width: 100px;
-    height: 1000px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 60%;;
    
-  }
+  }*/
    
   /* src/styles/Navbar.css */
 nav {
@@ -45,3 +136,11 @@ nav a {
   text-decoration: none;
   color: black;
 }
+
+.body {
+  background-image: url('../img/Cslot.png');
+  width: 50px;
+  height: 50px;
+  
+}
+
