@@ -3,9 +3,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 0px;
     justify-content: center;
     text-align: center;
+
+    background-image: url('https://i.pinimg.com/736x/d8/bb/b4/d8bbb4c7aa1829708c5aba4ef4197b4f.jpg');
   }
   
   .steps {
@@ -14,11 +16,12 @@
     width: 80%;
     margin-bottom: 20px;
     padding: 14px 16px;
-    background-color: aliceblue;
+   background-color: aliceblue;
     
   }
   
   .step {
+    margin-top: auto;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -60,8 +63,4 @@
     padding-right: 1500px;
     
     
-  }
-
-  .logo{
-
   }

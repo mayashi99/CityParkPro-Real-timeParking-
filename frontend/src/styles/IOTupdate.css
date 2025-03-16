@@ -1,0 +1,123 @@
+#body{
+    background-image: "https://i.pinimg.com/474x/b8/72/24/b8722454fca45628510db3bbdd370e0e.jpg";
+}
+
+.dashboard-container {
+    display:grid;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px;
+   
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 18%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  li a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  .card {
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+    color: rgb(3, 56, 56);
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #8cd4ae;
+  }
+  
+  .box{
+    display: flex;
+    grid-template-columns: repeat(4, 3fr);
+    gap: 16px;
+    padding-left: 500px;
+    margin-top: 40px;
+    
+  }
+  .card-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .card-label {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+  
+  .card-icon {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+  
+  .card-button {
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    color: white;
+  }
+  
+  .card-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+
+
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    padding-left: 1000px;
+   margin-left: 500px;
+    margin-top: 100px;
+    justify-content: center;
+
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+  .nav{
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+ 

@@ -1,16 +1,23 @@
 import React from "react";
-//import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 //import Home from "./pages/Home";
 import ParkingSlotScreen from "./pages/ParkingSlotScreen";
+import IOTupdate from "./pages/IOTupdate";
+
 
 function App() {
   return (
-  
-    <div>
-      <ParkingSlotScreen/>
-   
       
-    </div>
+    <BrowserRouter>
+      <Routes>
+       
+          <Route index element={<ParkingSlotScreen />} />
+         
+          <Route path="iotupdate" element={<IOTupdate />} />
+        
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
