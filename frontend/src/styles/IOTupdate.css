@@ -1,5 +1,9 @@
-#body{
-    background-image: "https://i.pinimg.com/474x/b8/72/24/b8722454fca45628510db3bbdd370e0e.jpg";
+.body {
+  background-image: url('https://i.pinimg.com/736x/a3/78/4c/a3784c8246f2418fa8abd6258d875af4.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 .dashboard-container {
@@ -8,6 +12,7 @@
     gap: 10px;
     padding: 20px;
    
+   
   }
   
   ul {
@@ -15,10 +20,11 @@
     margin: 0;
     padding: 0;
     width: 18%;
-    background-color: #f1f1f1;
+    background-color: #7e8085;
     position: fixed;
     height: 100%;
     overflow: auto;
+    opacity: 0.8754;
   }
   
   li a {
@@ -45,7 +51,9 @@
     text-align: center;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #8cd4ae;
+    background-color: #3486b8;
+    box-shadow: 10px 10px 20px #BFBFBF, -10px -10px 20px #a7a7a7;
+    opacity: 0.8754;
   }
   
   .box{
@@ -54,6 +62,7 @@
     gap: 16px;
     padding-left: 500px;
     margin-top: 40px;
+    background-image: ('https://i.pinimg.com/736x/32/1a/1e/321a1e3f4827f0f81e11a7ebccb03ff8.jpg');
     
   }
   .card-value {
@@ -93,8 +102,10 @@
     width: 70%;
     padding-left: 1000px;
    margin-left: 500px;
-    margin-top: 100px;
+    margin-top: 200px;
     justify-content: center;
+    background-color: #ddd;
+    opacity: 0.8754;
 
   }
   
@@ -111,8 +122,8 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(12, 12, 12);
   }
   .nav{
     display: flex;

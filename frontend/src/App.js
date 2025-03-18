@@ -13,6 +13,7 @@ function App() {
        
           <Route index element={<ParkingSlotScreen />} />
          
+          {/*<Route path="parkingslotscreen" element={<ParkingSlotScreen />} />*/}
           <Route path="iotupdate" element={<IOTupdate />} />
         
       </Routes>

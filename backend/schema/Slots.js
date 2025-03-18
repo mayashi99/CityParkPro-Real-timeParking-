@@ -4,7 +4,12 @@ const mongoose = require('mongoose');
 // Define the  schema
 const slotsSchema = new mongoose.Schema({
     floorNumber: String,
-    numberofSlot: String
+    numberofSlot: String,
+    date:String,
+    checkin:String,
+    checkout:String,
+    chooseSlot:String
+
 
 });
 

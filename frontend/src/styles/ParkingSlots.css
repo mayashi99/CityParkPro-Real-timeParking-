@@ -3,23 +3,50 @@
   justify-content: center;
   align-items: center;
   padding-top: 0%;
-  height: 125vh;
-  background-image: url('https://i.pinimg.com/736x/d8/bb/b4/d8bbb4c7aa1829708c5aba4ef4197b4f.jpg');
+  margin-top: 0%;
+  height: 100vh;
+  
 }
 
+legend {
+  display: block;
+  unicode-bidi: isolate;
+  padding-inline: 2px;
+  font-size: larger;
+}
+.title{
+
+  font-size: 150px;
+
+}
+
+.snav{
+  background-image: url('https://i.pinimg.com/736x/a3/78/4c/a3784c8246f2418fa8abd6258d875af4.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*width: 100%;
+  height: 100%;*/
+}
 .mycard {
   background-color: white;
-  margin-top: 0%;
+  padding-top: 20px;
+  margin-top: 10px;
   padding-left: 24px;
   padding-right: 24px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 900px;
-  height: 1000px;
+  width: 800px;
+  height: 750px;
+  top:0%;
+  opacity: 0.8754;
+  display:grid;
+  
+
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: xx-large;
   font-weight: bold;
   text-align: center;
   margin-bottom: 16px;
@@ -27,7 +54,7 @@
 
 .layout {
   display: flex;
-  justify-content: space-between;
+ gap: 90px;
 }
 
 .subtitle {
@@ -41,11 +68,16 @@
   display: grid;
   grid-template-columns: repeat(4, 3fr);
   gap: 16px;
+
+}
+
+.h1{
+  size: 50px;
 }
 
 .slot {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,20 +85,25 @@
   font-weight: bold;
   color: white;
   text-align: center;
+  opacity: 1;
+  
 }
 
 .available {
   background-color: #22c55e;
+  border-radius: 10px;
+  /*box-shadow: 10px 10px 20px #adecbf, -10px -10px 10px #8dda9d;*/
 }
 
 .not-available {
   background-color: #ef4444;
+  /*box-shadow: 10px 10px 10px #f79797, -10px -10px 20px #e38c8c;*/
 }
 
 .status {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 15px;
   margin-left: 30px;
   text-align: center;
 }
@@ -82,23 +119,36 @@
 .communication {
   margin-top: 20px;
   border-top: 1px solid #ddd;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
   padding-top: 16px;
   margin: 20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #BFBFBF, -10px -10px 20px #a7a7a7;
 }
 
 .des{
   margin-top: 40px;
-  height: 100px;
-  padding-right: 40px;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 140px;
+  padding-right: 10px;
+  box-shadow: 10px 10px 20px #BFBFBF, -10px -10px 20px #a7a7a7;
 }
 
 .button{
   margin-top: 20;
   padding-left: 600px;
   display: flex;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px #BFBFBF, -10px -10px 20px #a7a7a7;
 }
 .time{
   margin-top: 20px;
+  gap: 25px;
 }
 
 .lot{
@@ -109,11 +159,16 @@
 }
 
 .pslot{
-  width: 700px;
-  height: 600px;
-  padding-left: 90px;
+  width: 650px;
+  height: 260px;
+  justify-content: center;
+  padding-left: 35px;
+  padding-right: 60px;
+  padding-top: 10px;
   margin-top: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #BFBFBF, -10px -10px 20px #a7a7a7;
+  opacity: 1;
 }
 .input {
   width: 100%;
@@ -129,7 +184,11 @@
   margin-top: 24px;
   
 }
-
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
 .btn {
   padding: 8px 12px;
   border-radius: 4px;
@@ -137,15 +196,21 @@
 }
 
 .connect {
-  background-color: #3b82f6;
+  background-color: #234b8b;
+  border-radius: 5px;
+  
 }
 
-.close {
-  background-color: #6b7280;
+.clear {
+  background-color: #6e7073;
+  border-radius: 5px;
+  
 }
 
 .exit {
-  background-color: #ef4444;
+  background-color: #c73f3f;
+  border-radius: 5px;
+ 
 }
 
   /*body {
@@ -177,18 +242,22 @@ nav a {
   color: black;
 }
 
-.body {
-  background-image: url('../img/Cslot.png');
-  width: 50px;
-  height: 50px;
+/*.body {
+  background-image: url('https://i.pinimg.com/736x/32/1a/1e/321a1e3f4827f0f81e11a7ebccb03ff8.jpg');
+  height: 100%;
+  width: 100%;
   
-}
+}*/
 
 fieldset {
   border: 2px solid #ccc;
   padding: 10px;
   border-radius: 5px;
+  padding-left: 10px;
+  font-size:16px;
 }
+
+
 
 /*comm {
 

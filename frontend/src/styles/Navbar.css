@@ -6,29 +6,35 @@
     margin-top: 0px;
     justify-content: center;
     text-align: center;
+    padding-left: 10px;
+    padding-right: 300px;
 
-    background-image: url('https://i.pinimg.com/736x/d8/bb/b4/d8bbb4c7aa1829708c5aba4ef4197b4f.jpg');
+   /* background-image: url('https://i.pinimg.com/736x/32/1a/1e/321a1e3f4827f0f81e11a7ebccb03ff8.jpg');*/
   }
   
   .steps {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 50%;
     margin-bottom: 20px;
-    padding: 14px 16px;
-   background-color: aliceblue;
+    padding: 20px 20px;
+   margin-top: 10px;
+   width: 50px;
     
   }
   
   .step {
-    margin-top: auto;
+    margin-top: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #ccc;
+    border-radius: 90px;
     cursor: pointer;
     text-align: center;
-    flex: 1;
+    color: aliceblue;
+    touch-action: double-tap-zoom;
+    flex: 3;
     margin: 0 5px;
+   
     
   }
   

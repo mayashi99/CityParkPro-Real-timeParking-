@@ -15,6 +15,7 @@ const StepNavigationBar = () => {
   ];
 
   return (
+    <div className='body'>
     <div className="step-navigation-bar">
        <div className="logo">
         
@@ -31,7 +32,7 @@ const StepNavigationBar = () => {
       </div>
       </div>
       </div>
-  
+      </div>
   );
 };
 
