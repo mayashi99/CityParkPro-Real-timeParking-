@@ -3,20 +3,20 @@ import "../styles/IOTupdate.css";
 
 const IOTupdate = () => {
   const cards = [
-    { value: 150, label: "Total Booking", icon: "📖", color: "bg-teal-500" },
+    { value: 150, 
+      label: "Total Booking",
+       icon: "📖", 
+       color: "bg-teal-500" },
     {
       value: 53,
       label: "Total Parking Slot",
       icon: "🅿️",
       color: "bg-green-500",
     },
-    { value: 53, label: "Total Vehicles", icon: "🚗", color: "bg-blue-500" },
-    {
-      value: 53,
-      label: "Total Vehicle Owner",
-      icon: "👥",
-      color: "bg-cyan-500",
-    },
+    { value: 53, 
+      label: "Total Vehicles",
+       icon: "🚗", 
+       color: "bg-blue-500" },
   ];
 
   return (
@@ -113,7 +113,8 @@ const IOTupdate = () => {
               <td>BCD8009</td>
               <td></td>
               <td></td>
-            </tr><tr>
+            </tr>
+            <tr>
               <td>BCD8009</td>
               <td></td>
               <td></td>

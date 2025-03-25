@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //import Home from "./pages/Home";
 import ParkingSlotScreen from "./pages/ParkingSlotScreen";
 import IOTupdate from "./pages/IOTupdate";
+import SlotsTable from "./pages/SlotsTable";
+
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
          
           {/*<Route path="parkingslotscreen" element={<ParkingSlotScreen />} />*/}
           <Route path="iotupdate" element={<IOTupdate />} />
+           <Route path="slotstable" element={<SlotsTable />} />
+
         
       </Routes>
     </BrowserRouter>

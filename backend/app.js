@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
+var slotsRouter = require('./routes/slots');
 
 
 var app = express();
@@ -32,6 +33,7 @@ mongoose.connect('mongodb+srv://mayashikodikara:12345@cluster0.55qrg.mongodb.net
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
+app.use('/slots', slotsRouter);
 
 
 // catch 404 and forward to error handler

@@ -2,17 +2,11 @@ import React, { useEffect, useState } from "react";
 import api from "../config/apiRequest"; // Import the Axios instance
 import "../styles/ParkingSlots.css";
 import "../styles/Navbar.css";
-//import Navbar from "../components/Navbar";
 
 const ParkingSystem = () => {
-
-  const [slots] = useState({
-    P01: false, P02: true, P03: true, P04: true, P05: false, P06: false,
-    P07: true, P08: false, P09: false, P010: false, P011: true, P012: false,
-  });
- const [book,setbook ]= useState("")
+  const [floor, setFloor] = useState(""); // Stores the selected floor
+  const [slots, setSlots] = useState({}); // Stores available slots for the selected floor
   const [formData, setFormData] = useState({
-    floor: "",
     date: "",
     checkIn: "",
     checkOut: "",
@@ -23,13 +17,32 @@ const ParkingSystem = () => {
   const minDate = "2025-03-30";
   const maxDate = "2027-05-01";
 
+  // Fetch parking slots when floor changes
+  useEffect(() => {
+    if (floor) {
+      api
+        .get(`/slots?floor=${floor}`) // Fetch slots for the selected floor
+        .then((response) => {
+          setSlots(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching slots:", error);
+        });
+    }
+  }, [floor]);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFloorChange = (e) => {
+    setFloor(e.target.value);
+    setSlots({}); // Reset slots when floor changes
+  };
+
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.floor) newErrors.floor = "Please select a floor.";
+    if (!floor) newErrors.floor = "Please select a floor.";
     if (!formData.date) newErrors.date = "Please select a date.";
     if (!formData.checkIn) newErrors.checkIn = "Check-in time is required.";
     if (!formData.checkOut) newErrors.checkOut = "Check-out time is required.";
@@ -41,18 +54,6 @@ const ParkingSystem = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  useEffect(() => {
-    api
-      .get("/books") // Base URL is already set in api.js
-      .then((response) => {
-        console.log(response)
-        setbook(response.data)
-      })
-      .catch((error) => {
-        
-      });
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -63,26 +64,21 @@ const ParkingSystem = () => {
 
   return (
     <div className="snav">
-      {/* <Navbar /> */}
-
       <div className="container">
         <div className="mycard">
           <div className="title">
-
-            {book}
             <h1 className="title">CityParkPro Management System</h1>
           </div>
           <div className="layout">
-            {/* Communication */}
+            {/* Floor Selection & Booking Form */}
             <div className="communication">
               <fieldset>
                 <legend>Selecting Details</legend>
-
                 <form onSubmit={handleSubmit}>
                   {/* Floor Selection */}
                   <div>
                     <label>Choose Floor:</label>
-                    <select name="floor" className="input" onChange={handleChange} value={formData.floor}>
+                    <select name="floor" className="input" onChange={handleFloorChange} value={floor}>
                       <option value="">Choose Floor</option>
                       <option value="Floor 01">Floor 01</option>
                       <option value="Floor 02">Floor 02</option>
@@ -102,7 +98,7 @@ const ParkingSystem = () => {
                   <div className="time">
                     <label>Check In: </label>
                     <input type="time" name="checkIn" step="3600" onChange={handleChange} value={formData.checkIn} />
-                    <label>   Check Out: </label>
+                    <label> Check Out: </label>
                     <input type="time" name="checkOut" step="3600" onChange={handleChange} value={formData.checkOut} />
                   </div>
                   {errors.checkIn && <p className="error">{errors.checkIn}</p>}
@@ -111,7 +107,7 @@ const ParkingSystem = () => {
                   {/* Buttons */}
                   <div className="buttons">
                     <button type="submit" className="btn connect">Connect</button>
-                    <button type="button" className="btn clear" onClick={() => setFormData({ floor: "", date: "", checkIn: "", checkOut: "" })}>Clear</button>
+                    <button type="button" className="btn clear" onClick={() => setFormData({ date: "", checkIn: "", checkOut: "" })}>Clear</button>
                     <button type="button" className="btn exit">Exit</button>
                   </div>
                 </form>
@@ -121,7 +117,7 @@ const ParkingSystem = () => {
             {/* Status Description */}
             <div className="des">
               <fieldset>
-                <legend> Lot Status Description</legend>
+                <legend>Lot Status Description</legend>
                 <div className="status">
                   <div className="status-item available">Available</div>
                   <div className="status-item not-available">Not Available</div>
@@ -133,14 +129,18 @@ const ParkingSystem = () => {
           {/* Parking Slots */}
           <div className="pslot">
             <fieldset>
-              <legend>Parking Lot Area</legend>
-              <div className="grid">
-                {Object.entries(slots).map(([slot, available]) => (
-                  <div key={slot} className={`slot ${available ? "available" : "not-available"}`}>
-                    {slot}
-                  </div>
-                ))}
-              </div>
+              <legend>Parking Lot Area - {floor}</legend>
+              {floor ? (
+                <div className="grid">
+                  {Object.entries(slots).map(([slot, available]) => (
+                    <div key={slot} className={`slot ${available ? "available" : "not-available"}`}>
+                      {slot}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p>Please select a floor to view available slots.</p>
+              )}
             </fieldset>
           </div>
         </div>
@@ -150,3 +150,4 @@ const ParkingSystem = () => {
 };
 
 export default ParkingSystem;
+
