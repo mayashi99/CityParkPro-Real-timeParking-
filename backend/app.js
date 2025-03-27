@@ -12,8 +12,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var slotsRouter = require('./routes/slots');
-const bookingRouter = require('./routes/booking'); 
-const slotRouter = require('./routes/slot');
+/*const bookingRouter = require('./routes/booking'); 
+const slotRouter = require('./routes/slot');*/
 
 // Import seedDatabase function
 //const seedDatabase = require('./seedData');
@@ -38,6 +38,7 @@ mongoose.connect('mongodb+srv://mayashikodikara:12345@cluster0.55qrg.mongodb.net
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
+app.use('/slots',slotsRouter);
 
 
 // catch 404 and forward to error handler

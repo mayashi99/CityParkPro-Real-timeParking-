@@ -12,7 +12,10 @@ legend {
   display: block;
   unicode-bidi: isolate;
   padding-inline: 2px;
-  font-size: larger;
+  font-size:x-large;
+  color: rgb(0, 0, 0);
+  color: #0b3686;
+ 
 }
 .title{
 
@@ -21,7 +24,8 @@ legend {
 }
 
 .snav{
-  background-image: url('https://i.pinimg.com/736x/a3/78/4c/a3784c8246f2418fa8abd6258d875af4.jpg');
+ background-image: url('https://i.pinimg.com/736x/eb/ad/ed/ebaded662037c599e2d4fb7fd1658c81.jpg');
+  
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -36,16 +40,16 @@ legend {
   padding-right: 24px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 800px;
-  height: 750px;
+  width: 900px;
+  height: 950px;
   top:0%;
   opacity: 0.8754;
   display:grid;
-  
 
 }
 
 .title {
+  color: #0b3686;
   font-size: xx-large;
   font-weight: bold;
   text-align: center;
@@ -90,13 +94,13 @@ legend {
 }
 
 .available {
-  background-color: #22c55e;
+  background-color: #37a25e !important;
   border-radius: 10px;
   /*box-shadow: 10px 10px 20px #adecbf, -10px -10px 10px #8dda9d;*/
 }
 
 .not-available {
-  background-color: #ef4444;
+  background-color: #df5858;
   /*box-shadow: 10px 10px 10px #f79797, -10px -10px 20px #e38c8c;*/
 }
 
@@ -117,6 +121,7 @@ legend {
 }
 
 .communication {
+  
   margin-top: 20px;
   border-top: 1px solid #ddd;
   padding-left: 10px;
@@ -124,11 +129,14 @@ legend {
   padding-bottom: 10px;
   padding-top: 16px;
   margin: 20px;
+  width: 450px;
+  height: 350px;
   border-radius: 20px;
   box-shadow: 10px 10px 20px #BFBFBF, -10px -10px 20px #a7a7a7;
 }
 
 .des{
+  
   margin-top: 40px;
   border-radius: 20px;
   padding-left: 10px;
@@ -139,16 +147,20 @@ legend {
   box-shadow: 10px 10px 20px #BFBFBF, -10px -10px 20px #a7a7a7;
 }
 
-.button{
+.button1{
   margin-top: 20;
   padding-left: 600px;
+  width: 2opx;
   display: flex;
   border-radius: 20px;
   box-shadow: 10px 10px 10px #BFBFBF, -10px -10px 20px #a7a7a7;
 }
 .time{
   margin-top: 20px;
-  gap: 25px;
+  gap: 1px;
+  color: #223e9b;
+  
+  display: flex;
 }
 
 .lot{
@@ -159,7 +171,8 @@ legend {
 }
 
 .pslot{
-  width: 650px;
+  
+  width: 750px;
   height: 260px;
   justify-content: center;
   padding-left: 35px;
@@ -172,16 +185,19 @@ legend {
 }
 .input {
   width: 100%;
-  padding: 8px;
+  padding: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
   margin-bottom: 8px;
+ 
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
+  gap: 10px;
+
   
 }
 .error {
@@ -255,6 +271,8 @@ fieldset {
   border-radius: 5px;
   padding-left: 10px;
   font-size:16px;
+  background-color: white;
+  
 }
 
 
@@ -264,3 +282,34 @@ fieldset {
   margin-top: 300px;
 
 }*/
+
+.slot {
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.available {
+  background-color: #49d17b; /* Green */
+  color: white;
+}
+
+.slot.not-available {
+  background-color: #d84646; /* Red */
+  color: white;
+}
+
+.slot:hover {
+  opacity: 0.8;
+}
+
+.date{
+  color: #223e9b;
+  display: flex;
+}
+
+.floor{
+  color: #223e9b;
+  display: flex;
+}

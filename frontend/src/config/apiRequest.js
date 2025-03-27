@@ -1,4 +1,6 @@
 import axios from "axios";
+import DeletedParkingSlots from "../pages/AddSlotForm";
+
 
 const api = axios.create({
   baseURL: "http://localhost:5000", // Replace with your API URL
@@ -8,6 +10,16 @@ const api = axios.create({
     Accept: "application/json",
   },
 });
+
+const DeleteSlot = async (slotId) => {
+  try {
+    const response = await axios.delete(`/slots/${slotId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting slot:", error);
+    throw error;
+  }
+};
 
 // Request Interceptor (Optional: Add authentication token)
 api.interceptors.request.use(
@@ -29,5 +41,7 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+
 
 export default api;

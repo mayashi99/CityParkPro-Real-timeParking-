@@ -5,7 +5,7 @@ import "../styles/Navbar.css";
 
 const ParkingSystem = () => {
   const [floor, setFloor] = useState(""); // Stores the selected floor
-  const [slots, setSlots] = useState({}); // Stores available slots for the selected floor
+  const [slots, setSlots] = useState([]); // Stores available slots for the selected floor
   const [formData, setFormData] = useState({
     date: "",
     checkIn: "",
@@ -14,21 +14,31 @@ const ParkingSystem = () => {
 
   const [errors, setErrors] = useState({});
 
-  const minDate = "2025-03-30";
+  const minDate = "2025-03-26";
   const maxDate = "2027-05-01";
 
-  // Fetch parking slots when floor changes
-  useEffect(() => {
-    if (floor) {
+  // Fetch parking slots when floor changes or form is submitted
+  const fetchSlots = (selectedFloor) => {
+    if (selectedFloor) {
       api
-        .get(`/slots?floor=${floor}`) // Fetch slots for the selected floor
+        .get(`/slots/floor/${selectedFloor}`) // Fetch slots for the selected floor
         .then((response) => {
-          setSlots(response.data);
+          const updatedSlots = response.data.map((slot) => ({
+            ...slot,
+            // Set the chooseSlot value based on availability (example condition)
+            
+          }));
+          setSlots(updatedSlots);
         })
         .catch((error) => {
           console.error("Error fetching slots:", error);
         });
     }
+  };
+  
+
+  useEffect(() => {
+    fetchSlots(floor);
   }, [floor]);
 
   const handleChange = (e) => {
@@ -37,7 +47,7 @@ const ParkingSystem = () => {
 
   const handleFloorChange = (e) => {
     setFloor(e.target.value);
-    setSlots({}); // Reset slots when floor changes
+    setSlots([]); // Reset slots when floor changes
   };
 
   const validateForm = () => {
@@ -59,7 +69,31 @@ const ParkingSystem = () => {
     if (validateForm()) {
       alert("Form submitted successfully!");
       console.log(formData);
+      fetchSlots(floor); // Fetch updated slots after form submission
     }
+  };
+
+  const toggleSlotSelection = (slotId) => {
+    const updatedSlots = slots.map((slot) => 
+      slot.numberofSlot === slotId
+        ? { ...slot, chooseSlot: !slot.chooseSlot }
+        : slot
+    );
+    setSlots(updatedSlots);
+
+    // Send POST request to update the chooseSlot status on the backend
+    const selectedSlot = updatedSlots.find((slot) => slot.numberofSlot === slotId);
+    api
+      .post(`/slots/update`, {
+        numberofSlot: slotId,
+        chooseSlot: selectedSlot.chooseSlot,
+      })
+      .then((response) => {
+        console.log("Slot updated successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating slot:", error);
+      });
   };
 
   return (
@@ -76,29 +110,29 @@ const ParkingSystem = () => {
                 <legend>Selecting Details</legend>
                 <form onSubmit={handleSubmit}>
                   {/* Floor Selection */}
-                  <div>
-                    <label>Choose Floor:</label>
+                  <div className="floor">
+                   <h3> <label>Choose Floor:</label></h3>
                     <select name="floor" className="input" onChange={handleFloorChange} value={floor}>
-                      <option value="">Choose Floor</option>
-                      <option value="Floor 01">Floor 01</option>
-                      <option value="Floor 02">Floor 02</option>
-                      <option value="Floor 03">Floor 03</option>
+                      <option value=""><h3>Choose Floor</h3></option>
+                      <option value="1">Floor 01</option>
+                      <option value="2">Floor 02</option>
+                      <option value="3">Floor 03</option>
                     </select>
                     {errors.floor && <p className="error">{errors.floor}</p>}
                   </div>
 
                   {/* Date Selection */}
-                  <div>
-                    <label>Date: </label>
+                  <div className="date">
+                    <h3><label>Date: </label></h3>
                     <input type="date" name="date" min={minDate} max={maxDate} onChange={handleChange} value={formData.date} />
                     {errors.date && <p className="error">{errors.date}</p>}
                   </div>
 
                   {/* Time Selection */}
                   <div className="time">
-                    <label>Check In: </label>
+                   <h3> <label>Check In: </label></h3>
                     <input type="time" name="checkIn" step="3600" onChange={handleChange} value={formData.checkIn} />
-                    <label> Check Out: </label>
+                   <h3> <label> Check Out: </label></h3>
                     <input type="time" name="checkOut" step="3600" onChange={handleChange} value={formData.checkOut} />
                   </div>
                   {errors.checkIn && <p className="error">{errors.checkIn}</p>}
@@ -132,12 +166,17 @@ const ParkingSystem = () => {
               <legend>Parking Lot Area - {floor}</legend>
               {floor ? (
                 <div className="grid">
-                  {Object.entries(slots).map(([slot, available]) => (
-                    <div key={slot} className={`slot ${available ? "available" : "not-available"}`}>
-                      {slot}
-                    </div>
-                  ))}
-                </div>
+                {slots.map((slot) => (
+                  <div
+                    key={slot.numberofSlot}
+                    onClick={() => toggleSlotSelection(slot.numberofSlot)}
+                    className={`slot ${slot.chooseSlot ? "available" : "not-available"}`}
+                  >
+                    {slot.numberofSlot} 
+                  </div>
+                ))}
+              </div>
+              
               ) : (
                 <p>Please select a floor to view available slots.</p>
               )}
@@ -150,4 +189,3 @@ const ParkingSystem = () => {
 };
 
 export default ParkingSystem;
-

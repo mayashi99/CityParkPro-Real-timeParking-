@@ -1,0 +1,139 @@
+/* DeleteSlot.css */
+
+.formdeleted{
+    display: flex;
+  background-image: url('https://i.pinimg.com/736x/a3/78/4c/a3784c8246f2418fa8abd6258d875af4.jpg');
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.delete-slot-container {
+    width: 500px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem; /* equivalent to p-6 */
+    background-color: white;
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  }
+  
+  .delete-slot-title {
+    font-size: 1.5rem; /* text-2xl */
+    justify-content: center;
+    padding-left: 70px;
+    font-weight: 700; /* font-bold */
+    margin-bottom: 1.5rem; /* mb-6 */
+    color: #1a202c; /* text-gray-800 */
+  }
+  
+  .delete-slot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* space-y-4 */
+  }
+  
+  .form-group {
+    margin-bottom: 0.25rem; /* mb-1 */
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #4a5568; /* text-gray-700 */
+  }
+  
+  .form-select,
+  .form-input {
+    width: 100%;
+    padding: 0.5rem; /* p-2 */
+    border: 1px solid #e2e8f0; /* border-gray-300 */
+    border-radius: 0.375rem; /* rounded-md */
+    font-size: 1rem;
+  }
+  
+  .form-select:focus,
+  .form-input:focus {
+    outline: none;
+    border-color: #4299e1; /* focus:border-blue-500 */
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* focus:ring-2 focus:ring-blue-500 */
+  }
+  
+  .delete-button {
+    width: 100%;
+    background-color: #e53e3e; /* bg-red-600 */
+    color: white;
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    border: none;
+    border-radius: 0.375rem; /* rounded-md */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* transition duration-200 */
+  }
+  
+  .delete-button:hover {
+    background-color: #c53030; /* hover:bg-red-700 */
+  }
+  
+  .message {
+    margin-top: 1rem; /* mt-4 */
+    font-size: 0.875rem; /* text-sm */
+  }
+  
+  .message-success {
+    color: #38a169; /* text-green-600 */
+  }
+  
+  .message-error {
+    color: #e53e3e; /* text-red-600 */
+  }
+  
+  .slots-list-container {
+    margin-top: 2rem; /* mt-8 */
+  }
+  
+  .slots-list-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.75rem; /* mb-3 */
+    color: #4a5568; /* text-gray-700 */
+  }
+  
+  .slots-list {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem; /* rounded-md */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .slots-list li {
+    padding: 0.75rem; /* p-3 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #edf2f7; /* divide-y divide-gray-200 */
+  }
+  
+  .slots-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .slot-number {
+    font-weight: 500; /* font-medium */
+  }
+  
+  .slot-floor {
+    font-size: 0.875rem; /* text-sm */
+    color: #718096; /* text-gray-500 */
+  }
+  
+  .no-slots {
+    padding: 0.75rem; /* p-3 */
+    color: #718096; /* text-gray-500 */
+  }
